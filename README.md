@@ -4,6 +4,7 @@ A simple code profiler for Elixir using eprof.
 It provides a simple macro as a wrapper for Erlang's <a href="http://www.erlang.org/doc/man/eprof.html" target="_blank">:eprof</a> profiler.
 
 ### Usage
+import "ExProf.Macro", then use "profile" macro to start profiling. It prints out results, and returns them as list of records.
 
 ```elixir
 defmodule SampleRunner do
