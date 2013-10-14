@@ -2,12 +2,15 @@ defmodule SampleRunner do
   import ExProf.Macro
 
   def run do
-    records = profile do
+    records = analyze
+    total_percent = Enum.reduce(records, 0.0, &(&1.percent + &2))
+    IO.inspect "total = #{total_percent}"
+  end
+
+  def analyze do
+    profile do
       :timer.sleep 2000
       IO.puts "message\n"
     end
-
-    sum = Enum.reduce(records, 0.0, fn(record, acc) -> record.percent + acc end)
-    IO.inspect "sum = #{sum}"
   end
 end
