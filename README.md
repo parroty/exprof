@@ -1,4 +1,4 @@
-# ExProf
+# ExProf [![Build Status](https://secure.travis-ci.org/parroty/exprof.png?branch=master "Build Status")](http://travis-ci.org/parroty/exprof)
 A simple code profiler for Elixir using eprof.
 
 It provides a simple macro as a wrapper for Erlang's <a href="http://www.erlang.org/doc/man/eprof.html" target="_blank">:eprof</a> profiler.
