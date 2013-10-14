@@ -30,8 +30,8 @@ defmodule ExProf.Analyzer do
   end
 
   defp print_header do
-    IO.puts "FUNCTION                                       CALLS           %  TIME  [uS / CALLS]"
-    IO.puts "--------                                       -----         ---  ----  [----------]"
+    IO.puts "FUNCTION                                           CALLS       %  TIME  [uS / CALLS]"
+    IO.puts "--------                                           -----     ---  ----  [----------]"
   end
 
   defp do_print(record) do
