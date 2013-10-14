@@ -30,11 +30,12 @@ defmodule ExProf.Analyzer do
   end
 
   defp print_header do
-    IO.puts "FUNCTION                                       CALLS        %  TIME  [uS / CALLS]"
-    IO.puts "--------                                       -----      ---  ----  [----------]"
+    IO.puts "FUNCTION                                       CALLS           %  TIME  [uS / CALLS]"
+    IO.puts "--------                                       -----         ---  ----  [----------]"
   end
 
   defp do_print(record) do
-    printf("%-50s %-3d %6.2f %5d  [%10.2f]\n", [record.function, record.calls, record.percent, record.time, record.us_per_call])
+    printf("%-50s %-6d %6.2f %5d  [%10.2f]\n",
+      [String.slice(record.function, 0, 50), record.calls, record.percent, record.time, record.us_per_call])
   end
 end
