@@ -1,4 +1,11 @@
 defmodule ExProf.Reader do
+  @moduledoc """
+  A reader for eprof outputs.
+  """
+
+  @doc """
+  Read the eprof output file and returns the parsed result of Prof records.
+  """
   def read(file_name) do
     File.read!(file_name) |> String.split("\n") |> parse([])
   end
