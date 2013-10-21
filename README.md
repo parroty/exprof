@@ -10,14 +10,19 @@ import "ExProf.Macro", then use "profile" macro to start profiling. It prints ou
 defmodule SampleRunner do
   import ExProf.Macro
 
-  def run do
-    records = profile do
+  @doc "analyze with profile macro"
+  def do_analyze do
+    profile do
       :timer.sleep 2000
       IO.puts "message\n"
     end
+  end
 
-    sum = Enum.reduce(records, 0.0, fn(record, acc) -> record.percent + acc end)
-    IO.inspect "sum = #{sum}"
+  @doc "get analysis records and sum them up"
+  def run do
+    records = do_analyze
+    total_percent = Enum.reduce(records, 0.0, &(&1.percent + &2))
+    IO.inspect "total = #{total_percent}"
   end
 end
 ```
@@ -25,6 +30,8 @@ end
 ### Run
 
 ```elixir
+$ iex -S mix
+..
 iex(1)> SampleRunner.run
 message
 
@@ -45,6 +52,6 @@ io:wait_io_mon_reply/2                       1   6.90     8  [      8.00]
 unicode:characters_to_binary/2               1  11.21    13  [     13.00]
 timer:sleep/1                                1  14.66    17  [     17.00]
 erlang:monitor/2                             1  31.03    36  [     36.00]
-"sum = 100.0"
+"total = 100.0"
 ```
 
