@@ -8,7 +8,7 @@ defmodule ExProf.Analyzer do
   Returns records only have major percent values, and filter out rest of them.
   The default is to pick "80%" and it can be changed by specifying rate argument.
   """
-  def get_top_percent_items(records, rate // 80.0) do
+  def get_top_percent_items(records, rate \\ 80.0) do
     sorted_records = Enum.sort(records, &(&1.percent > &2.percent))
     do_get_top_percent_items(sorted_records, rate, [])
   end

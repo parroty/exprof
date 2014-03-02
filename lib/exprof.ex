@@ -10,7 +10,7 @@ defmodule ExProf do
   @doc """
   Start the profiling for the specified pid.
   """
-  def start(pid // self) do
+  def start(pid \\ self) do
     :eprof.start
     :eprof.start_profiling([pid])
   end
