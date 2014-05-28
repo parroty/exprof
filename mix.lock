@@ -1,1 +1,1 @@
-[ "exprintf": {:git, "git://github.com/parroty/exprintf.git", "586c8e07c65805cf8e53d5855bbb7fd1472b777a", []} ]
+%{"exprintf": {:git, "git://github.com/parroty/exprintf.git", "f9d29116acebd148819904391448435ee773a633", []}}
