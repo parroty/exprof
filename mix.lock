@@ -1,1 +1,1 @@
-%{"exprintf": {:git, "git://github.com/parroty/exprintf.git", "0e517575c742c271d5eab82cae6b4a98c9391f7e", []}}
+%{"exprintf": {:package, "0.1.2"}}

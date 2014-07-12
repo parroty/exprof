@@ -3,9 +3,12 @@ defmodule ExProf.Mixfile do
 
   def project do
     [ app: :exprof,
-      version: "0.0.1",
+      version: "0.1.0",
       elixir: "~> 0.14.0",
-      deps: deps ]
+      deps: deps,
+      description: description,
+      package: package
+    ]
   end
 
   # Configuration for the OTP application
@@ -16,8 +19,18 @@ defmodule ExProf.Mixfile do
   # Returns the list of dependencies in the format:
   # { :foobar, "~> 0.1", git: "https://github.com/elixir-lang/foobar.git" }
   defp deps do
-    [
-      {:exprintf, github: "parroty/exprintf"}
-    ]
+    [ {:exprintf, "~> 0.1"} ]
+  end
+
+  defp description do
+    """
+    A simple code profiler for Elixir using eprof.
+    """
+  end
+
+  defp package do
+    [ contributors: ["parroty"],
+      license: ["MIT"],
+      links: [ { "GitHub", "https://github.com/parroty/exprof" } ] ]
   end
 end
