@@ -4,7 +4,7 @@ defmodule ExProf.Mixfile do
   def project do
     [ app: :exprof,
       version: "0.1.2",
-      elixir: "~> 0.14.0",
+      elixir: "~> 0.14.0 or ~> 0.15.0",
       deps: deps,
       description: description,
       package: package
