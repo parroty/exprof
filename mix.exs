@@ -3,8 +3,8 @@ defmodule ExProf.Mixfile do
 
   def project do
     [ app: :exprof,
-      version: "0.1.3",
-      elixir: "~> 0.14.3 or ~> 0.15.0 or ~> 1.0",
+      version: "0.2.0",
+      elixir: "~> 1.0",
       deps: deps,
       description: description,
       package: package
