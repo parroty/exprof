@@ -55,3 +55,20 @@ erlang:monitor/2                             1  31.03    36  [     36.00]
 "total = 100.0"
 ```
 
+### Add a Mix Task
+
+```elixir
+defmodule Mix.Tasks.Exprof do
+  @shortdoc "Profile using ExProf"
+  use Mix.Task
+  import ExProf.Macro
+
+  def run(mix_args) do
+    profile do: do_work(2)
+  end
+
+  defp do_work(n) do
+    :timer.sleep(n * 1000)
+  end
+end
+```
