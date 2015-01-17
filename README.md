@@ -28,6 +28,7 @@ end
 ```
 
 ### Run
+An example to use in iex console.
 
 ```elixir
 $ iex -S mix
@@ -56,10 +57,9 @@ erlang:monitor/2                             1  31.03    36  [     36.00]
 ```
 
 ### Add a Mix Task
-
-```elixir
 An example to use as mix tasks.
 
+```elixir
 defmodule Mix.Tasks.Exprof do
   @shortdoc "Profile using ExProf"
   use Mix.Task
