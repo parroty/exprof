@@ -1,7 +1,16 @@
-# ExProf [![Build Status](https://secure.travis-ci.org/parroty/exprof.png?branch=master "Build Status")](http://travis-ci.org/parroty/exprof)
+# ExProf [![Build Status](https://secure.travis-ci.org/parroty/exprof.png?branch=master "Build Status")](http://travis-ci.org/parroty/exprof) [![hex.pm version](https://img.shields.io/hexpm/v/exprof.svg)](https://hex.pm/packages/exprof) [![hex.pm downloads](https://img.shields.io/hexpm/dt/exprof.svg)](https://hex.pm/packages/exprof)
 A simple code profiler for Elixir using eprof.
 
 It provides a simple macro as a wrapper for Erlang's <a href="http://www.erlang.org/doc/man/eprof.html" target="_blank">:eprof</a> profiler.
+
+### Install
+Add `:exprof` to `deps` section of `mix.exs`.
+
+```elixir
+  def deps do
+    [ {:exprof, "~> 0.2.0"} ]
+  end
+```
 
 ### Usage
 import "ExProf.Macro", then use "profile" macro to start profiling. It prints out results, and returns them as list of records.
