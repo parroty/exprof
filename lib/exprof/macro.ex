@@ -16,7 +16,7 @@ defmodule ExProf.Macro do
     quote do
       pid = spawn(ExProf.Macro, :execute_profile, [fn -> unquote(code) end])
       ExProf.start(pid)
-      send pid, self
+      send pid, self()
 
       receive do
         _ -> nil
