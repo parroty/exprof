@@ -25,7 +25,7 @@ defmodule ExProf.Analyzer do
   Print records to screen
   """
   def print(records) do
-    print_header
+    print_header()
     Enum.each(records, &(do_print(&1)))
   end
 
