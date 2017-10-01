@@ -1,5 +1,8 @@
 language: elixir
 otp_release:
-  - 17.1
+  - 18.2
+elixir:
+  - 1.4.0
+  - 1.5.0
 env:
   - MIX_ENV=test
