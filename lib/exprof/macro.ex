@@ -5,25 +5,30 @@ defmodule ExProf.Macro do
 
   @doc """
   A macro to specify the code block to profile.
+
   It spawns a new process to execute the code block for isolating the profile result.
   (ex.)
 
       profile do
         :timer.sleep 2000
       end
+
   """
-  defmacro profile(code) do
+  defmacro profile(do: code) do
     quote do
       pid = spawn(ExProf.Macro, :execute_profile, [fn -> unquote(code) end])
       ExProf.start(pid)
       send pid, self()
 
-      receive do
-        _ -> nil
-      end
+      result =
+        receive do
+          result -> result
+        end
 
       ExProf.stop
-      ExProf.analyze
+      records = ExProf.analyze
+
+      {records, result}
     end
   end
 
@@ -33,8 +38,7 @@ defmodule ExProf.Macro do
   def execute_profile(func) do
     receive do
       sender ->
-        func.()
-        send sender, nil
+        send sender, func.()
     end
   end
 end

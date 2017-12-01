@@ -4,7 +4,7 @@ defmodule ExprofTest do
 
   test "sample runner" do
     assert capture_io(fn ->
-      SampleRunner.run
+      assert :ok = SampleRunner.run
     end) =~ ~r/FUNCTION\s+CALLS/m
   end
 end
