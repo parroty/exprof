@@ -10,11 +10,11 @@ defmodule ExprofTest do
 
   @tag timeout: 1000
   test "abort on exit" do
-    import ExProf.Macro
-
     Process.flag(:trap_exit, true)
 
     pid = spawn_link(fn ->
+      import ExProf.Macro
+
       profile do
         Process.exit(self(), :kill)
       end
