@@ -1,5 +1,5 @@
 defmodule ExprofTest do
-  use ExUnit.Case, async: true
+  use ExUnit.Case, async: false
   import ExUnit.CaptureIO
 
   test "sample runner" do
