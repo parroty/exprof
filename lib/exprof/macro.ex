@@ -16,7 +16,7 @@ defmodule ExProf.Macro do
   """
   defmacro profile(do: code) do
     quote do
-      pid = spawn(ExProf.Macro, :execute_profile, [fn -> unquote(code) end])
+      pid = spawn_link(ExProf.Macro, :execute_profile, [fn -> unquote(code) end])
       ExProf.start(pid)
       send pid, self()
 
