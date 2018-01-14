@@ -13,7 +13,9 @@ Add `:exprof` to `deps` section of `mix.exs`.
 ```
 
 ### Usage
-import "ExProf.Macro", then use "profile" macro to start profiling. It prints out results, and returns them as list of records.
+import "ExProf.Macro", then use "profile" macro to start profiling. It
+prints out results, and returns them as list of records, along with the
+result of the profiled block.
 
 ```elixir
 defmodule SampleRunner do
@@ -29,7 +31,7 @@ defmodule SampleRunner do
 
   @doc "get analysis records and sum them up"
   def run do
-    records = do_analyze
+    {records, _block_result} = do_analyze
     total_percent = Enum.reduce(records, 0.0, &(&1.percent + &2))
     IO.inspect "total = #{total_percent}"
   end
