@@ -27,10 +27,12 @@ defmodule ExProf do
   It also outputs to the STDOUT.
   """
   def analyze do
-    :eprof.log(@tmp_prof_name)
+    random_number = :rand.uniform(100)
+    file_name = to_string(@tmp_prof_name ++ [to_string(random_number)])
+    :eprof.log(file_name)
     :eprof.analyze(:total, [{:sort, :time}])
-    records = ExProf.Reader.read(@tmp_prof_name)
-    File.rm!(@tmp_prof_name)
+    records = ExProf.Reader.read(file_name)
+    File.rm!(file_name)
     records
   end
 end
