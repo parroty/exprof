@@ -16,13 +16,14 @@ defmodule ExProf.Macro do
   """
   defmacro profile(do: code) do
     quote do
-      pid = spawn_link(ExProf.Macro, :execute_profile, [fn -> unquote(code) end])
+      ref = make_ref()
+      pid = spawn_link(ExProf.Macro, :execute_profile, [fn -> unquote(code) end, ref])
       ExProf.start(pid)
-      send pid, self()
+      send pid, {ref, self()}
 
       result =
         receive do
-          result -> result
+          {^ref, result} -> result
         end
 
       ExProf.stop
@@ -35,10 +36,19 @@ defmodule ExProf.Macro do
   @doc """
   An internal method for initiating profiling.
   """
-  def execute_profile(func) do
+  def execute_profile(func, ref) do
     receive do
-      sender ->
-        send sender, func.()
+      {^ref, sender} ->
+        send sender, {ref, func.()}
+        forward_other_messages(sender)
+    end
+  end
+
+  defp forward_other_messages(sender) do
+    receive do
+      message ->
+        send sender, message
+        forward_other_messages(sender)
     end
   end
 end
