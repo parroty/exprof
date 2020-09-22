@@ -1,3 +1,8 @@
+0.2.4
+------
+#### Changes
+* Makes sure it is OK for the profiled code to send/receive messages (#13).
+
 0.2.3
 ------
 #### Changes
