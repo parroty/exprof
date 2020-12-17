@@ -26,4 +26,4 @@ jobs:
          restore-keys: |
            ${{ runner.os }}-mix-
       - run: mix deps.get
-      - run: mix coveralls.github
+      - run: mix test
