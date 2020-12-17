@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        otp: ['19.3']
+        otp: ['18.2']
         elixir: ['1.4', '1.7']
     env:
       MIX_ENV: test
