@@ -1,3 +1,9 @@
+0.2.5
+------
+#### Changes
+* Fix for warnings with elixir v1.11.
+  * Add :tools to extra_applications in mix.exs (#15).
+
 0.2.4
 ------
 #### Changes
