@@ -1,4 +1,10 @@
-# ExProf [![Build Status](https://secure.travis-ci.org/parroty/exprof.png?branch=master "Build Status")](http://travis-ci.org/parroty/exprof) [![hex.pm version](https://img.shields.io/hexpm/v/exprof.svg)](https://hex.pm/packages/exprof) [![hex.pm downloads](https://img.shields.io/hexpm/dt/exprof.svg)](https://hex.pm/packages/exprof)
+ExProf
+============
+
+[![Build Status](https://github.com/parroty/excoveralls/workflows/tests/badge.svg)](https://github.com/parroty/exprof/actions)
+[![hex.pm version](https://img.shields.io/hexpm/v/exprof.svg)](https://hex.pm/packages/exprof)
+[![hex.pm downloads](https://img.shields.io/hexpm/dt/exprof.svg)](https://hex.pm/packages/exprof)
+
 A simple code profiler for Elixir using eprof.
 
 It provides a simple macro as a wrapper for Erlang's <a href="http://www.erlang.org/doc/man/eprof.html" target="_blank">:eprof</a> profiler.
