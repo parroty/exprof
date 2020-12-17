@@ -26,4 +26,4 @@ jobs:
          restore-keys: |
            ${{ runner.os }}-mix-
       - run: mix deps.get
-      - run: mix test
+      - run: mix test --seed 0 # disable randomization
